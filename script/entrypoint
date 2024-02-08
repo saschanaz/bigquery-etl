@@ -14,6 +14,8 @@ if [ -n "$GCLOUD_SERVICE_KEY" ]; then
     fi
     echo "$GCLOUD_SERVICE_KEY" > "$GOOGLE_APPLICATION_CREDENTIALS"
     echo "DEBUG: Wrote $(echo "$GCLOUD_SERVICE_KEY" | wc -c) bytes to '$GOOGLE_APPLICATION_CREDENTIALS'."
+    echo "DEBUG: First 10 bytes of '$GOOGLE_APPLICATION_CREDENTIALS': $(head -c 10 "$GOOGLE_APPLICATION_CREDENTIALS")"
+    echo "DEBUG: Last 10 bytes of '$GOOGLE_APPLICATION_CREDENTIALS': $(tail -c 10 "$GOOGLE_APPLICATION_CREDENTIALS")"
 fi
 
 if [ -n "$GOOGLE_APPLICATION_CREDENTIALS" ] && which gcloud > /dev/null; then
